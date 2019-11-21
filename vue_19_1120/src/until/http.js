@@ -2,11 +2,11 @@ import axios from "axios";
 // axios = axios.create({
 //   baseURL: '/api', 
 // });
-axios.baseURL='/api';
+axios.baseURL='/v2';
 //发起请求之前 拦截
 axios.interceptors.request.use( (config) => {
     //请求发送之前
-    window.console.log(config);
+    // console.log(config);
     return config;
   },(error) => {
     //处理错误请求
@@ -19,9 +19,7 @@ axios.interceptors.response.use(
     // 对响应数据做点什么
     // window.console.log(response); 
     if( response.status === 200 ){
-        if( response.data.errorCode === 0 ){
-          return response.data;
-        }
+      return response;
     }
     
 }, function (error) {
