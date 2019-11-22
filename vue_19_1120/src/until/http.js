@@ -1,10 +1,13 @@
 import axios from "axios"; 
+import { Toast } from "@nutui/nutui";
 // axios = axios.create({
 //   baseURL: '/api', 
 // });
 axios.baseURL='/v2';
+const loading = Toast.loading(12312312312);
 //发起请求之前 拦截
 axios.interceptors.request.use( (config) => {
+    loading;
     //请求发送之前
     // console.log(config);
     return config;
@@ -19,6 +22,7 @@ axios.interceptors.response.use(
     // 对响应数据做点什么
     // window.console.log(response); 
     if( response.status === 200 ){
+      loading.hide();
       return response;
     }
     
