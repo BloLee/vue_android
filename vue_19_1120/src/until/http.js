@@ -4,14 +4,20 @@ import { Toast } from "@nutui/nutui";
 //   baseURL: '/api', 
 // });
 axios.baseURL='/v2';
-const loading = Toast.loading(12312312312);
+let loading = "";
+var _num = 0;
 //发起请求之前 拦截
-axios.interceptors.request.use( (config) => {
-    loading;
+axios.interceptors.request.use( (config) => {  
+    loading = Toast.loading("加载中");
+    _num ++; 
     //请求发送之前
     // console.log(config);
     return config;
-  },(error) => {
+  },(error) => { 
+    // _num--;
+    // if(_num <= 0 ){
+    //   loading.hide();
+    // }
     //处理错误请求
     return Promise.reject(error);
   }
@@ -19,14 +25,20 @@ axios.interceptors.request.use( (config) => {
 //添加响应拦截器
 axios.interceptors.response.use( 
   response => {
-    // 对响应数据做点什么
-    // window.console.log(response); 
-    if( response.status === 200 ){
+    _num --;
+    if(_num <= 0 ){
       loading.hide();
+    }
+    // 对响应数据做点什么 
+    if( response.status === 200 ){ 
       return response;
     }
     
 }, function (error) {
+  // _num --;
+  // if(_num <= 0 ){
+  //   loading.hide();
+  // }
   // 对响应错误做点什么
   return Promise.reject(error);
 });
