@@ -7,7 +7,7 @@ Vue.use(Vuex);
 export  default new Vuex.Store({
   state: {
     intheaters:[],  //首页热映电影的信息
-    
+    infiniteloading:"0",  //即将上映  正在热映  11月推荐的type 类型
   },
   /**
    * 更改 state 中的状态
@@ -17,6 +17,14 @@ export  default new Vuex.Store({
   mutations: {
     getData(state,res){
       state.intheaters = res;
+    },
+    increment (state, n) {
+      state.count += n
+    },
+    changVideoList(state,type){
+      console.log(type)
+      state.infiniteloading = type ? type :state.infiniteloading;
+      
     }
   },
   /**

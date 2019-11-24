@@ -41,7 +41,7 @@
      </div>
      <div class="Video-wrap"> 
         <Title :titType="2" :name="'豆瓣电影新片榜'" :videoNum="new_movies.subjects.length" />
-        <LookList v-bind:datasocue="new_movies.subjects" v-if="new_movies" />
+        <Rateist v-bind:datasocue="new_movies.subjects" v-if="new_movies" />
      </div>
    </div>
 </template>
@@ -130,7 +130,7 @@
 </style>
 <script>
 import Title from "./title";
-import LookList from "./lookList";
+import Rateist from "@/components/rateLook/rateList";
 import { in_theaters,top250,weekly,new_movies,coming_soon,us_box } from "@/until/api";
 export default {
   name:'home',
@@ -147,7 +147,7 @@ export default {
       All_movies:[],  //所有集合
     }
   }, 
-  components:{ Title,LookList },
+  components:{ Title,Rateist },
   //通过计算属性读取 state 数据
   // computed:{
   //   intheaters(){

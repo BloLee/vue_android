@@ -4,7 +4,8 @@ import router from './router';
 import axios from "axios"; 
 import store from "./store/index";
 import moment from "moment";
-import { Button, Tab,TabPanel,Tabbar,Rate,lazyload,Toast,skeleton,Row} from '@nutui/nutui';
+import { flex,Button,Col, Tab,TabPanel,Tabbar,Rate,lazyload,Toast,skeleton,Row
+,infiniteloading} from '@nutui/nutui';
 Vue.config.productionTip = false;
 Vue.prototype.moment = moment;
 Vue.prototype.axios = axios
@@ -20,8 +21,12 @@ skeleton.skeletonCircle.install(Vue);
 skeleton.skeletonColumn.install(Vue);
 skeleton.skeletonRow.install(Vue);
 skeleton.skeletonSquare.install(Vue);
+infiniteloading.install(Vue);
+// flex.col.install(Vue);
+// flex.row.install(Vue);
 // Skeleton.install(Vue); 
 Row.install(Vue);
+Col.install(Vue);
 new Vue({
   router,
   store,
