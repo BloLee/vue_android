@@ -7,9 +7,17 @@ const routes = [
   { 
     path:"/" ,
     component:home,
+    meta: { 
+      requiresAuth: true,
+      title:'豆瓣音影'
+    }
   },{
     path:'/comsoon',
     component:comsoon,
+    meta: { 
+      requiresAuth: false,
+      title:"院线电影"
+    }
   }
 ]
 const router = new VueRouter({

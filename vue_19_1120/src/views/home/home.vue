@@ -1,5 +1,5 @@
 <template>
-   <div class="wrap">
+   <div class="wrap"> 
      <div class="Video-wrap"> 
       <div class="title-box-more"> 
           <div class="title-list">
@@ -129,6 +129,7 @@
 }
 </style>
 <script>
+import headNav from "@/components/header";
 import Title from "./title";
 import Rateist from "@/components/rateLook/rateList";
 import { in_theaters,top250,weekly,new_movies,coming_soon,us_box } from "@/until/api";
@@ -147,7 +148,7 @@ export default {
       All_movies:[],  //所有集合
     }
   }, 
-  components:{ Title,Rateist },
+  components:{ Title,Rateist,headNav },
   //通过计算属性读取 state 数据
   // computed:{
   //   intheaters(){

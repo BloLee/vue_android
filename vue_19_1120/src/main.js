@@ -5,7 +5,7 @@ import axios from "axios";
 import store from "./store/index";
 import moment from "moment";
 import { flex,Button,Col, Tab,TabPanel,Tabbar,Rate,lazyload,Toast,skeleton,Row
-,infiniteloading} from '@nutui/nutui';
+,infiniteloading,Navbar} from '@nutui/nutui';
 Vue.config.productionTip = false;
 Vue.prototype.moment = moment;
 Vue.prototype.axios = axios
@@ -22,6 +22,7 @@ skeleton.skeletonColumn.install(Vue);
 skeleton.skeletonRow.install(Vue);
 skeleton.skeletonSquare.install(Vue);
 infiniteloading.install(Vue);
+Navbar.install(Vue);
 // flex.col.install(Vue);
 // flex.row.install(Vue);
 // Skeleton.install(Vue); 
