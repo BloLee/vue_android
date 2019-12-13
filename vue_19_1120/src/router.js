@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter  from 'vue-router'
 Vue.use(VueRouter); 
-const home = () => import(/* webpackChunkName: "home" */ './views/home/home.vue')
-const comsoon = () => import(/* webpackChunkName: "home" */ './views/videoList/list.vue')
+const home = () => import(/* webpackChunkName: "home" */ './views/home/home.vue');
+const comsoon = () => import(/* webpackChunkName: "home" */ './views/videoList/list.vue');
+const family = () => import(/* webpackChunkName: "family" */ './views/Family/index.vue');
 const routes = [ 
   { 
     path:"/" ,
@@ -17,6 +18,14 @@ const routes = [
     meta: { 
       requiresAuth: false,
       title:"院线电影"
+    }
+  },{
+    
+    path:'/family',
+    component:family,
+    meta: { 
+      requiresAuth: false,
+      title:"家谱"
     }
   }
 ]
